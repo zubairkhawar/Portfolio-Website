@@ -1,8 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import { CodeBracketIcon, EyeIcon } from "@heroicons/react/24/outline";
 import Link from "next/link";
 
 const ProjectCard = ({ imgUrl, title, description, gitUrl, previewUrl }) => {
+  const [showZoomedImage, setShowZoomedImage] = useState(false);
+
+  const toggleZoomedImage = () => {
+    setShowZoomedImage(!showZoomedImage);
+  };
+
   return (
     <div>
       <div
@@ -16,18 +22,33 @@ const ProjectCard = ({ imgUrl, title, description, gitUrl, previewUrl }) => {
           >
             <CodeBracketIcon className="h-10 w-10 text-[#ADB7BE] absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2  cursor-pointer group-hover/link:text-white" />
           </Link>
-          <Link
-            href={previewUrl}
+          <button
+            onClick={toggleZoomedImage}
             className="h-14 w-14 border-2 relative rounded-full border-[#ADB7BE] hover:border-white group/link"
           >
-            <EyeIcon className="h-10 w-10 text-[#ADB7BE] absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2  cursor-pointer group-hover/link:text-white" />
-          </Link>
+            <EyeIcon className="h-10 w-10 text-[#ADB7BE] absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 cursor-pointer group-hover/link:text-white" />
+          </button>
         </div>
       </div>
-      <div className="text-white rounded-b-xl mt-3 bg-[#181818]py-6 px-4">
+      <div className="text-white rounded-b-xl mt-3 bg-[#181818] py-6 px-4">
         <h5 className="text-xl font-semibold mb-2">{title}</h5>
         <p className="text-[#ADB7BE]">{description}</p>
       </div>
+
+      {/* Modal for Zoomed Image */}
+      {showZoomedImage && (
+        <div className="fixed top-0 left-0 w-full h-full flex items-center justify-center z-50 bg-black bg-opacity-70">
+          <div className="max-w-3xl max-h-screen overflow-auto">
+            <button
+              onClick={toggleZoomedImage}
+              className="absolute top-4 right-4 text-white text-2xl focus:outline-none"
+            >
+              &times;
+            </button>
+            <img src={imgUrl} alt={title} className="rounded-lg shadow-lg" />
+          </div>
+        </div>
+      )}
     </div>
   );
 };

@@ -1,11 +1,17 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 import { TypeAnimation } from "react-type-animation";
 import { motion } from "framer-motion";
 import Link from "next/link";
+import Modal from "./Modal"; 
 
 const HeroSection = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const openModal = () => setIsModalOpen(true);
+  const closeModal = () => setIsModalOpen(false);
+
   return (
     <section className="lg:py-16">
       <div className="grid grid-cols-1 sm:grid-cols-12">
@@ -37,18 +43,18 @@ const HeroSection = () => {
             />
           </h1>
           <p className="text-[#ADB7BE] text-base sm:text-lg mb-6 lg:text-xl">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam,
-            voluptuous.
+            Transforming Ideas into Digital Realities
           </p>
           <div>
-            <Link
-              href="/#contact"
+            <button
+              onClick={openModal}
               className="px-6 inline-block py-3 w-full sm:w-fit rounded-full mr-4 bg-gradient-to-br from-purple-500 to-pink-500 hover:bg-slate-200 text-white"
             >
               Hire Me
-            </Link>
+            </button>
             <Link
-              href="/"
+              href="/zubair-cv.pdf"
+              download="Zubair_CV.pdf"
               className="px-1 inline-block py-1 w-full sm:w-fit rounded-full bg-gradient-to-br from-purple-500 to-pink-500 hover:bg-slate-800 text-white mt-3"
             >
               <span className="block bg-[#121212] hover:bg-slate-800 rounded-full px-5 py-2">
@@ -74,6 +80,12 @@ const HeroSection = () => {
           </div>
         </motion.div>
       </div>
+      <Modal
+        isOpen={isModalOpen}
+        onClose={closeModal}
+        contact="+923213211177"
+        email="zubairkhawer@gmail.com"
+      />
     </section>
   );
 };
