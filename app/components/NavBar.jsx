@@ -9,7 +9,7 @@ const NavBar = () => {
     return (
         <nav className='fixed top-0 left-0 right-0 z-10 bg-[#121212] bg-opacity-100'>
             <div className='flex flex-wrap items-center justify-between mx-auto px-8 py-4'>
-                <Link href="/" className='text-2xl text-white font-semibold'>LOGO</Link>
+                <Link href="/" className='text-2xl text-white font-semibold'>Zubair Khawar</Link>
                 
                 {/* Mobile menu button */}
                 <div className='block md:hidden'>
@@ -31,7 +31,7 @@ const NavBar = () => {
                             <Link href="#projects" className='text-[#ADB7BE] sm:text-xl hover:text-white'>Projects</Link>
                         </li>
                         <li>
-                            <Link href="#services" className='text-[#ADB7BE] sm:text-xl hover:text-white'>Services</Link>
+                            <Link href="#contact" className='text-[#ADB7BE] sm:text-xl hover:text-white'>Contact</Link>
                         </li>
                     </ul>
                 </div>
@@ -48,7 +48,7 @@ const NavBar = () => {
                             <Link href="#projects" className='text-[#ADB7BE] sm:text-xl hover:text-white'>Projects</Link>
                         </li>
                         <li>
-                            <Link href="#services" className='text-[#ADB7BE] sm:text-xl hover:text-white'>Services</Link>
+                            <Link href="#contact" className='text-[#ADB7BE] sm:text-xl hover:text-white'>Contact</Link>
                         </li>
                     </ul>
                 </div>
