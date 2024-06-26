@@ -1,10 +1,10 @@
-"use client";
+"use client"
 import React, { useState } from "react";
 import Image from "next/image";
 import { TypeAnimation } from "react-type-animation";
 import { motion } from "framer-motion";
 import Link from "next/link";
-import Modal from "./Modal"; 
+import Modal from "./Modal";
 
 const HeroSection = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -25,7 +25,7 @@ const HeroSection = () => {
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600">
               Hello, I&apos;m{" "}
             </span>
-            <br></br>
+            <br />
             <TypeAnimation
               sequence={[
                 "Zubair",
@@ -72,10 +72,10 @@ const HeroSection = () => {
           <div className="rounded-full bg-[#181818] w-[250px] h-[250px] lg:w-[400px] lg:h-[400px] relative">
             <Image
               src="/hero-img2.png"
-              alt="hero image"
-              className="absolute transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 rounded-full"
-              width={350}
-              height={350}
+              alt="Hero Image"
+              layout="fill"
+              objectFit="cover"
+              className="rounded-full"
             />
           </div>
         </motion.div>
