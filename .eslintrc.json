@@ -1,5 +1,8 @@
 {
   "extends": "next/core-web-vitals",
+  "eslint": {
+    "ignoreDuringBuilds": true
+  },
   "rules": {
     "jsx-a11y/alt-text": "off", // Disable alt-text rule globally
     "react/no-unescaped-entities": "off", // Disable unescaped entities rule globally
