@@ -45,7 +45,7 @@ const ProjectCard = ({ imgUrl, title, description, gitUrl, previewUrl }) => {
             >
               &times;
             </button>
-            <img src={imgUrl} alt={title} className="rounded-lg shadow-lg" />
+            <Image src={imgUrl} alt={title} className="rounded-lg shadow-lg" />
           </div>
         </div>
       )}
