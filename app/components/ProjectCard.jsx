@@ -46,7 +46,13 @@ const ProjectCard = ({ imgUrl, title, description, gitUrl, previewUrl }) => {
             >
               &times;
             </button>
-            <Image src={imgUrl} alt={title} className="rounded-lg shadow-lg" />
+            <Image
+              src={imgUrl}
+              alt={title}
+              width={650} 
+              height={650} 
+              className="rounded-lg shadow-lg"
+            />
           </div>
         </div>
       )}
