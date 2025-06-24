@@ -7,19 +7,19 @@ import { motion, useInView } from "framer-motion";
 const projectsData = [
   {
     id: 1,
-    title: "Little Lemon Restaurant App",
+    title: "Marketing Agency App",
     description: "React JS Application",
-    image: "/projects/LL.png",
+    image: "/projects/BSGS.png",
     tag: ["All", "Web"],
-    gitUrl: "/",
+    gitUrl: "https://blueskyglobalsolutions.com/",
     previewUrl: "/",
   },
   {
     id: 2,
-    title: "Furniture Haven",
-    description: "React MongoDB Furniture App",
-    image: "/projects/FH.png",
-    tag: ["All", "Web"],
+    title: "Natural Language Processing Langchain PDF Application",
+    description: "Python Next.js Django Application",
+    image: "/projects/PDFAI.png",
+    tag: ["All", "Python AI"],
     gitUrl: "/",
     previewUrl: "/",
   },
@@ -34,6 +34,53 @@ const projectsData = [
   },
   {
     id: 4,
+    title: "Industrial Website",
+    description: "React Industry Website",
+    image: "/projects/SI.png",
+    tag: ["All", "Web"],
+    gitUrl: "https://www.naturalsaltlamps.com/",
+    previewUrl: "/",
+  },
+  {
+    id: 5,
+    title: "AI Image Recognition System",
+    description: "Python Deep Learning Application",
+    image: "/projects/IRS.png",
+    tag: ["All", "Python AI"],
+    gitUrl: "/",
+    previewUrl: "/",
+  },
+  {
+    id: 6,
+    title: "Machine Learning Data Analysis",
+    description: "Python ML Analytics Tool",
+    image: "/projects/ML.png",
+    tag: ["All", "Python AI"],
+    gitUrl: "/",
+    previewUrl: "/",
+  },
+  {
+    id: 7,
+    title: "Little Lemon Restaurant App",
+    description: "React JS Application",
+    image: "/projects/LL.png",
+    tag: ["All", "Web"],
+    gitUrl: "/",
+    previewUrl: "/",
+  },
+
+  {
+    id: 8,
+    title: "Furniture Haven",
+    description: "React MongoDB Furniture App",
+    image: "/projects/FH.png",
+    tag: ["All", "Web"],
+    gitUrl: "/",
+    previewUrl: "/",
+  },
+  
+  {
+    id: 9,
     title: "Food Ordering Application",
     description: "React Food Application",
     image: "/projects/4.png",
@@ -42,7 +89,7 @@ const projectsData = [
     previewUrl: "/",
   },
   {
-    id: 5,
+    id: 10,
     title: "Chatify App",
     description: "Java Android App",
     image: "/projects/Chatify.png",
@@ -50,15 +97,7 @@ const projectsData = [
     gitUrl: "/",
     previewUrl: "/",
   },
-  {
-    id: 6,
-    title: "Industrial Website",
-    description: "React Industry Website",
-    image: "/projects/SI.png",
-    tag: ["All", "Web"],
-    gitUrl: "https://www.naturalsaltlamps.com/",
-    previewUrl: "/",
-  },
+  
 ];
 
 const ProjectsSection = () => {
@@ -92,6 +131,11 @@ const ProjectsSection = () => {
         />
         <ProjectTag
           onClick={handleTagChange}
+          name="Python AI"
+          isSelected={tag === "Python AI"}
+        />
+        <ProjectTag
+          onClick={handleTagChange}
           name="Web"
           isSelected={tag === "Web"}
         />
@@ -100,6 +144,7 @@ const ProjectsSection = () => {
           name="Mobile"
           isSelected={tag === "Mobile"}
         />
+      
       </div>
       <ul ref={ref} className="grid md:grid-cols-3 gap-8 md:gap-12">
         {filteredProjects.map((project, index) => (

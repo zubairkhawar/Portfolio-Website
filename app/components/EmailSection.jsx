@@ -5,12 +5,7 @@ import Image from "next/image";
 
 const EmailSection = () => {
   const [emailSubmitted, setEmailSubmitted] = useState(false);
-  const [attachment, setAttachment] = useState(null);
   const [errors, setErrors] = useState({});
-
-  const handleFileChange = (e) => {
-    setAttachment(e.target.files[0]);
-  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -30,29 +25,17 @@ const EmailSection = () => {
       newErrors.subject = "Subject is required.";
     }
 
-    if (attachment && !attachment.name) {
-      newErrors.attachment = "Invalid attachment.";
-    }
-
     if (Object.keys(newErrors).length > 0) {
       setErrors(newErrors);
       return;
-    }
-
-    const formData = new FormData();
-    formData.append("email", email);
-    formData.append("subject", subject);
-    formData.append("message", message);
-
-    if (attachment) {
-      formData.append("attachment", attachment);
     }
 
     const endpoint = "/api/send";
 
     const options = {
       method: "POST",
-      body: formData,
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email, subject, message }),
     };
 
     try {
@@ -88,7 +71,7 @@ const EmailSection = () => {
         {emailSubmitted ? (
           <p className="text-green-500 text-sm mt-2">Email sent successfully!</p>
         ) : (
-          <form className="flex flex-col" onSubmit={handleSubmit} encType="multipart/form-data">
+          <form className="flex flex-col" onSubmit={handleSubmit}>
             <div className="mb-6">
               <label htmlFor="email" className="text-white block mb-2 text-sm font-medium">Your email</label>
               <input name="email" type="email" id="email" required className="bg-[#18191E] border border-[#33353F] placeholder-[#9CA2A9] text-gray-100 text-sm rounded-lg block w-full p-2.5" placeholder="mark@google.com" />
@@ -98,11 +81,6 @@ const EmailSection = () => {
               <label htmlFor="subject" className="text-white block text-sm mb-2 font-medium">Subject</label>
               <input name="subject" type="text" id="subject" required className="bg-[#18191E] border border-[#33353F] placeholder-[#9CA2A9] text-gray-100 text-sm rounded-lg block w-full p-2.5" placeholder="Just saying hi" />
               {errors.subject && <p className="text-red-500 text-sm mt-1">{errors.subject}</p>}
-            </div>
-            <div className="mb-6">
-              <label htmlFor="attachment" className="text-white block text-sm mb-2 font-medium">Attachment (optional)</label>
-              <input name="attachment" type="file" id="attachment" className="bg-[#18191E] border border-[#33353F] placeholder-[#9CA2A9] text-gray-100 text-sm rounded-lg block w-full p-2.5" onChange={handleFileChange} />
-              {errors.attachment && <p className="text-red-500 text-sm mt-1">{errors.attachment}</p>}
             </div>
             <div className="mb-6">
               <label htmlFor="message" className="text-white block text-sm mb-2 font-medium">Message</label>

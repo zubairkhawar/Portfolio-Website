@@ -9,18 +9,21 @@ const TAB_DATA = [
     id: "skills",
     content: (
       <ul className="grid  grid-cols-1 md:grid-cols-3 gap-2 list-disc pl-4">
-        <li>Node.js</li>
-        <li>Express</li>
-        <li>Next.js</li>
-        <li>Kotlin</li>
-        <li>Java</li>
         <li>Python</li>
-        <li>JavaScript</li>
-        <li>React</li>
-        <li>MongoDB</li>
-        <li>Firebase</li>
-        <li>Shopify</li>
-        <li>WordPress</li>
+        <li>OpenAI</li>
+        <li>LangChain</li>
+        <li>LangGraph</li>
+        <li>TensorFlow</li>
+        <li>Django REST</li>
+        <li>FastAPI</li>
+        <li>Node.js</li>
+        <li>Next.js</li>
+        <li>TypeScript</li>
+        <li>Tailwind</li>
+        <li>Supabase</li>
+        <li>AWS</li>
+        <li>PostgreSQL</li>
+        <li>Java</li>
       </ul>
     ),
   },
@@ -29,6 +32,9 @@ const TAB_DATA = [
     id: "education",
     content: (
       <ul className="list-disc pl-2">
+        <li>Master's in Data Science and Analytics with concentration in Artificial Intelligence, 2027</li>
+        <li>Old Dominion University, Virginia, United States</li>
+        <br></br>
         <li>Bachelor of Computer Science, 2024</li>
         <li>FAST National University of Computer & Emerging Sciences, Pakistan </li>
       </ul>
@@ -64,10 +70,7 @@ const AboutSection = () => {
         <div className="mt-4 md:mt-0 text-left flex flex-col h-full">
           <h2 className="text-4xl font-bold text-white mb-4">About Me</h2>
           <p className="text-base lg:text-lg">
-            I am a full stack web developer with a passion for creating
-            interactive and responsive web applications. I have two years of experience
-            working with JavaScript, React, Redux, Node.js, Express, Next.js, Tailwind and Typescript. I also specialize in building Shopify and WordPress websites, and my skill set extends to developing mobile applications using Flutter and Kotlin/Java. I am a quick learner and I am always
-            looking to expand my knowledge and skill set.
+          I am a Python AI Developer with 2 years of experience building intelligent systems using Python, Django, and AI/ML frameworks (TensorFlow, PyTorch), specializing in NLP applications with LangChain and LangGraph for agent-based workflows. I develop both code-based solutions (custom AI models, API integrations) and no-code AI implementations (LLM orchestration platforms, AI workflow automation). Leveraging my full-stack background (Next, Node.js, TypeScript), I deploy scalable AI solutions from model development to production-ready web integration (FastAPI, Django REST). My expertise extends to cloud deployment (AWS/Supabase) and creating hybrid solutions that combine traditional programming with cutting-edge AI tools, always focused on delivering practical, maintainable systems that solve real-world problems.
           </p>
           <div className="flex flex-row justify-start mt-8 space-x-4">
             <TabButton

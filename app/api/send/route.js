@@ -4,13 +4,9 @@ import { Resend } from "resend";
 const resend = new Resend(process.env.RESEND_API_KEY);
 const fromEmail = process.env.FROM_EMAIL;
 
-export async function POST(req, res) {
-  const { email, subject, message } = await req.json();
-  console.log(email, subject, message);
-
-  const attachment = req.files?.attachment;
-
+export async function POST(req) {
   try {
+    const { email, subject, message } = await req.json();
     let emailOptions = {
       from: fromEmail,
       to: [fromEmail, email],
@@ -22,16 +18,11 @@ export async function POST(req, res) {
         <p>${message}</p>
       `,
     };
-
-    if (attachment) {
-      emailOptions.attachments = [{ filename: attachment.name, content: attachment.data }];
-    }
-
     const data = await resend.emails.send(emailOptions);
-
-    return NextResponse.json(data);
+    console.log('Resend API response:', data);
+    return NextResponse.json({ resendResponse: data });
   } catch (error) {
     console.error("Error sending email:", error);
-    return NextResponse.json({ error: "Failed to send email." });
+    return NextResponse.json({ error: "Failed to send email.", details: error.message }, { status: 500 });
   }
 }

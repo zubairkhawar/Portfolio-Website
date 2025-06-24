@@ -30,11 +30,9 @@ const HeroSection = () => {
               sequence={[
                 "Zubair",
                 1000,
-                "Web Developer",
+                "AI Python Developer",
                 1000,
-                "Mobile Developer",
-                1000,
-                "Shopify Expert",
+                "Full Stack Developer",
                 1000,
               ]}
               wrapper="span"
@@ -52,6 +50,7 @@ const HeroSection = () => {
             >
               Hire Me
             </button>
+            {/*
             <Link
               href="/zubair-cv.pdf"
               download="Zubair_CV.pdf"
@@ -61,6 +60,7 @@ const HeroSection = () => {
                 Download CV
               </span>
             </Link>
+            */}
           </div>
         </motion.div>
         <motion.div
@@ -71,7 +71,7 @@ const HeroSection = () => {
         >
           <div className="rounded-full bg-[#181818] w-[250px] h-[250px] lg:w-[400px] lg:h-[400px] relative">
             <Image
-              src="/hero-img2.png"
+              src="/picofme (10).png"
               alt="Hero Image"
               layout="fill"
               objectFit="cover"
