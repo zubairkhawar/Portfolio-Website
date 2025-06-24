@@ -2,51 +2,52 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import emailjs from "emailjs-com";
+
+const SERVICE_ID = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID;
+const TEMPLATE_ID = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID;
+const USER_ID = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY;
 
 const EmailSection = () => {
   const [emailSubmitted, setEmailSubmitted] = useState(false);
   const [errors, setErrors] = useState({});
+  const [loading, setLoading] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setErrors({});
+    setLoading(true);
 
     const email = e.target.email.value;
     const subject = e.target.subject.value;
     const message = e.target.message.value;
 
     let newErrors = {};
-
-    if (!email) {
-      newErrors.email = "Email is required.";
-    }
-
-    if (!subject) {
-      newErrors.subject = "Subject is required.";
-    }
-
+    if (!email) newErrors.email = "Email is required.";
+    if (!subject) newErrors.subject = "Subject is required.";
     if (Object.keys(newErrors).length > 0) {
       setErrors(newErrors);
+      setLoading(false);
       return;
     }
 
-    const endpoint = "/api/send";
-
-    const options = {
-      method: "POST",
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ email, subject, message }),
+    const templateParams = {
+      email: email,        // This must match the variable in your template
+      from_email: email,   // (optional, for your own use)
+      subject: subject,
+      message: message,
+      // name: name,       // If you have a name field
     };
 
+
     try {
-      const response = await fetch(endpoint, options);
-      if (!response.ok) {
-        throw new Error("Failed to send message.");
-      }
+      await emailjs.send(SERVICE_ID, TEMPLATE_ID, templateParams, USER_ID);
       setEmailSubmitted(true);
     } catch (error) {
-      console.error("Error sending message:", error.message);
-      // Handle error state or display error to user
+      setErrors({ general: "Failed to send message. Please try again later." });
+      console.error("EmailJS error:", error);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -86,7 +87,10 @@ const EmailSection = () => {
               <label htmlFor="message" className="text-white block text-sm mb-2 font-medium">Message</label>
               <textarea name="message" id="message" className="bg-[#18191E] border border-[#33353F] placeholder-[#9CA2A9] text-gray-100 text-sm rounded-lg block w-full p-2.5" placeholder="Let's talk about..."></textarea>
             </div>
-            <button type="submit" className="bg-purple-500 hover:bg-purple-600 text-white font-medium py-2.5 px-5 rounded-lg w-full">Send Message</button>
+            {errors.general && <p className="text-red-500 text-sm mb-2">{errors.general}</p>}
+            <button type="submit" className="bg-purple-500 hover:bg-purple-600 text-white font-medium py-2.5 px-5 rounded-lg w-full" disabled={loading}>
+              {loading ? "Sending..." : "Send Message"}
+            </button>
           </form>
         )}
       </div>
