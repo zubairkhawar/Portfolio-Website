@@ -42,6 +42,7 @@ const EmailSection = () => {
 
     try {
       await emailjs.send(SERVICE_ID, TEMPLATE_ID, templateParams, USER_ID);
+      await emailjs.send(SERVICE_ID, "template_nmybkcj", templateParams, USER_ID);
       setEmailSubmitted(true);
     } catch (error) {
       setErrors({ general: "Failed to send message. Please try again later." });
