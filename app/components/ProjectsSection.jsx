@@ -17,7 +17,7 @@ const projectsData = [
   {
     id: 2,
     title: "PakistanLaw AI",
-    description: "React JS LangChain Application",
+    description: "Next.js LangChain Application",
     image: "/projects/PL.png",
     tag: ["All", "Python AI"],
     gitUrl: "https://www.pakistanlaw.ai/",
