@@ -7,15 +7,33 @@ import { motion, useInView } from "framer-motion";
 const projectsData = [
   {
     id: 1,
-    title: "Marketing Agency App",
-    description: "React JS Application",
+    title: "Sentivel: Simplify your care home journey",
+    description: "Django Next.js PostgreSQL LLM Application",
     image: "/projects/BSGS.png",
-    tag: ["All", "Web"],
-    gitUrl: "https://blueskyglobalsolutions.com/",
+    tag: ["All", "Python AI"],
+    gitUrl: "https://sentivel.com/",
     previewUrl: "/",
   },
   {
     id: 2,
+    title: "PakistanLaw AI",
+    description: "React JS LangChain Application",
+    image: "/projects/BSGS.png",
+    tag: ["All", "Python AI"],
+    gitUrl: "https://www.pakistanlaw.ai/",
+    previewUrl: "/",
+  },
+  {
+    id: 3,
+    title: "IR Course Creator",
+    description: "Next.js LangChain Application",
+    image: "/projects/BSGS.png",
+    tag: ["All", "Python AI"],
+    gitUrl: "https://course-factory-frontend.vercel.app/",
+    previewUrl: "/",
+  },
+  {
+    id: 4,
     title: "Natural Language Processing Langchain PDF Application",
     description: "Python Next.js Django Application",
     image: "/projects/PDFAI.png",
@@ -24,7 +42,7 @@ const projectsData = [
     previewUrl: "/",
   },
   {
-    id: 3,
+    id: 5,
     title: "Haramain Abrasives",
     description: "React Industrial Website",
     image: "/projects/HA.png",
@@ -33,7 +51,7 @@ const projectsData = [
     previewUrl: "/",
   },
   {
-    id: 4,
+    id: 6,
     title: "Industrial Website",
     description: "React Industry Website",
     image: "/projects/SI.png",
@@ -42,7 +60,7 @@ const projectsData = [
     previewUrl: "/",
   },
   {
-    id: 5,
+    id: 7,
     title: "AI Image Recognition System",
     description: "Python Deep Learning Application",
     image: "/projects/IRS.png",
@@ -51,7 +69,7 @@ const projectsData = [
     previewUrl: "/",
   },
   {
-    id: 6,
+    id: 8,
     title: "Machine Learning Data Analysis",
     description: "Python ML Analytics Tool",
     image: "/projects/ML.png",
@@ -60,7 +78,7 @@ const projectsData = [
     previewUrl: "/",
   },
   {
-    id: 7,
+    id: 9,
     title: "Little Lemon Restaurant App",
     description: "React JS Application",
     image: "/projects/LL.png",
@@ -70,7 +88,7 @@ const projectsData = [
   },
 
   {
-    id: 8,
+    id: 10,
     title: "Furniture Haven",
     description: "React MongoDB Furniture App",
     image: "/projects/FH.png",
@@ -80,7 +98,7 @@ const projectsData = [
   },
   
   {
-    id: 9,
+    id: 11,
     title: "Food Ordering Application",
     description: "React Food Application",
     image: "/projects/4.png",
@@ -89,7 +107,7 @@ const projectsData = [
     previewUrl: "/",
   },
   {
-    id: 10,
+    id: 12,
     title: "Chatify App",
     description: "Java Android App",
     image: "/projects/Chatify.png",
