@@ -35,7 +35,7 @@ const TAB_DATA = [
         <li>Master's in Data Science and Analytics with concentration in Artificial Intelligence, 2027</li>
         <li>Old Dominion University, Virginia, United States</li>
         <br></br>
-        <li>Bachelor of Computer Science, 2024</li>
+        <li>Bachelor of Computer Science, 2025</li>
         <li>FAST National University of Computer & Emerging Sciences, Pakistan </li>
       </ul>
     ),
