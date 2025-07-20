@@ -9,7 +9,7 @@ const projectsData = [
     id: 1,
     title: "DataWhiz: AI assistant for extracting, analyzing, and reporting business data.",
     description: "Django Next.js PostgreSQL AWS LangChain Application",
-    image: "/projects/DataWhiz.png",
+    image: "/projects/Datawhiz.png",
     tag: ["All", "Python AI"],
     gitUrl: "",
     previewUrl: "/",
