@@ -7,6 +7,15 @@ import { motion, useInView } from "framer-motion";
 const projectsData = [
   {
     id: 1,
+    title: "DataWhiz: AI assistant for extracting, analyzing, and reporting business data.",
+    description: "Django Next.js PostgreSQL AWS LangChain Application",
+    image: "/projects/DataWhiz.png",
+    tag: ["All", "Python AI"],
+    gitUrl: "",
+    previewUrl: "/",
+  },
+  {
+    id: 2,
     title: "Sentivel: Simplify your care home journey",
     description: "Django Next.js PostgreSQL LLM Application",
     image: "/projects/Senti.png",
@@ -15,7 +24,7 @@ const projectsData = [
     previewUrl: "/",
   },
   {
-    id: 2,
+    id: 3,
     title: "PakistanLaw AI",
     description: "Next.js LangChain Application",
     image: "/projects/PL.png",
@@ -24,7 +33,7 @@ const projectsData = [
     previewUrl: "/",
   },
   {
-    id: 3,
+    id: 4,
     title: "IR Course Creator",
     description: "Next.js LangChain Application",
     image: "/projects/IRCC.png",
@@ -33,7 +42,7 @@ const projectsData = [
     previewUrl: "/",
   },
   {
-    id: 4,
+    id: 5,
     title: "Natural Language Processing Langchain PDF Application",
     description: "Python Next.js Django Application",
     image: "/projects/PDFAI.png",
@@ -42,7 +51,7 @@ const projectsData = [
     previewUrl: "/",
   },
   {
-    id: 5,
+    id: 6,
     title: "Haramain Abrasives",
     description: "React Industrial Website",
     image: "/projects/HA.png",
@@ -51,7 +60,7 @@ const projectsData = [
     previewUrl: "/",
   },
   {
-    id: 6,
+    id: 7,
     title: "Industrial Website",
     description: "React Industry Website",
     image: "/projects/SI.png",
@@ -60,7 +69,7 @@ const projectsData = [
     previewUrl: "/",
   },
   {
-    id: 7,
+    id: 8,
     title: "AI Image Recognition System",
     description: "Python Deep Learning Application",
     image: "/projects/IRS.png",
@@ -69,7 +78,7 @@ const projectsData = [
     previewUrl: "/",
   },
   {
-    id: 8,
+    id: 9,
     title: "Machine Learning Data Analysis",
     description: "Python ML Analytics Tool",
     image: "/projects/ML.png",
@@ -78,7 +87,7 @@ const projectsData = [
     previewUrl: "/",
   },
   {
-    id: 9,
+    id: 10,
     title: "Little Lemon Restaurant App",
     description: "React JS Application",
     image: "/projects/LL.png",
@@ -88,7 +97,7 @@ const projectsData = [
   },
 
   {
-    id: 10,
+    id: 11,
     title: "Furniture Haven",
     description: "React MongoDB Furniture App",
     image: "/projects/FH.png",
@@ -98,7 +107,7 @@ const projectsData = [
   },
   
   {
-    id: 11,
+    id: 12,
     title: "Food Ordering Application",
     description: "React Food Application",
     image: "/projects/4.png",
@@ -107,7 +116,7 @@ const projectsData = [
     previewUrl: "/",
   },
   {
-    id: 12,
+    id: 13,
     title: "Chatify App",
     description: "Java Android App",
     image: "/projects/Chatify.png",
