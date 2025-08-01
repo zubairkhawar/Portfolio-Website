@@ -82,6 +82,7 @@ CRITICAL RULES:
         ],
         max_tokens: 400,
         temperature: 0.7,
+        stream: true,
       }),
     });
 
@@ -89,10 +90,58 @@ CRITICAL RULES:
       throw new Error('OpenAI API request failed');
     }
 
-    const data = await response.json();
-    const aiResponse = data.choices[0].message.content;
+    // Create a ReadableStream to handle streaming
+    const stream = new ReadableStream({
+      async start(controller) {
+        const reader = response.body.getReader();
+        const decoder = new TextDecoder();
 
-    return NextResponse.json({ response: aiResponse });
+        try {
+          while (true) {
+            const { done, value } = await reader.read();
+            if (done) break;
+
+            const chunk = decoder.decode(value);
+            const lines = chunk.split('\n');
+
+            for (const line of lines) {
+              if (line.startsWith('data: ')) {
+                const data = line.slice(6);
+                if (data === '[DONE]') {
+                  controller.close();
+                  break;
+                }
+
+                try {
+                  const parsed = JSON.parse(data);
+                  if (parsed.choices[0]?.delta?.content) {
+                    controller.enqueue(
+                      new TextEncoder().encode(
+                        `data: ${JSON.stringify({
+                          content: parsed.choices[0].delta.content,
+                        })}\n\n`
+                      )
+                    );
+                  }
+                } catch (e) {
+                  // Ignore parsing errors
+                }
+              }
+            }
+          }
+        } catch (error) {
+          controller.error(error);
+        }
+      },
+    });
+
+    return new Response(stream, {
+      headers: {
+        'Content-Type': 'text/plain; charset=utf-8',
+        'Cache-Control': 'no-cache',
+        'Connection': 'keep-alive',
+      },
+    });
   } catch (error) {
     console.error('Error in chat API:', error);
     return NextResponse.json(
