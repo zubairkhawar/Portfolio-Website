@@ -6,6 +6,7 @@ import ProjectsSection from "./components/ProjectsSection";
 import AchievementsSection from "./components/AchievementsSection";
 import Footer from "./components/Footer";
 import EmailSection from "./components/EmailSection";
+import Chatbot from "./components/Chatbot";
 
 export default function Home() {
   return (
@@ -19,7 +20,7 @@ export default function Home() {
         <EmailSection />
         <Footer />
       </div>
-  
+      <Chatbot />
     </main>
   );
 }
